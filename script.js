@@ -13,6 +13,11 @@ let showAdultsButton = document.getElementById('showAdults');
 let showChildrenButton = document.getElementById('showChildren');
 let userList = document.getElementById('userList');
 
+// Создание кнопки для вывода полного списка
+
+userList.insertAdjacentHTML('beforeBegin', '<button id="showAllPeople">Показать всех</button>');
+let showPeopleButton = document.getElementById('showAllPeople');
+
 // Функция для отображения списка людей
 
 function showUsers(userArray) {
@@ -21,7 +26,9 @@ function showUsers(userArray) {
         const listItem = document.createElement('li');
         listItem.textContent = `${user.name}, ${user.age} лет, статус: ${getStatus(user.age)}`;
         userList.appendChild(listItem);
-    });   
+    });
+
+    createSortButton(); // вызов кнопки сортировки
 }
 
 // Обработчик события вывода взрослых
@@ -38,11 +45,8 @@ showChildrenButton.addEventListener('click', () => {
     showUsers(children);
 });
 
-// Создание кнопки для вывода всех людей
-userList.insertAdjacentHTML('beforeBegin', '<button id="showAllPeople">Показать всех</button>');
-let showPeopleButton = document.getElementById('showAllPeople');
-
 // Обработчик события вывода всех людей
+
 if(showPeopleButton) {
     showPeopleButton.addEventListener('click', () => {
         showUsers(users);
@@ -53,21 +57,30 @@ if(showPeopleButton) {
 function getStatus(age) {
     let result = '';
     if (isNaN(age)) return '';
-    result =  (age >= 18) ? 'Взрослый' : 'Ребёнок';
 
-    return result;
+    return result = (age >= 18) ? 'Взрослый' : 'Ребёнок';
 }
-// создание кнопки сортировки
-userList.insertAdjacentHTML('beforeBegin', '<button id="sortOfList">Сортируй</button>');
-let sortBtn = document.getElementById('sortOfList');
 
-if(sortBtn) {
-    sortBtn.addEventListener('click', () => {
-        sortingLists(userList, users); 
-    });
+// создание кнопки сортировки c обработчиком
+
+let createSortButton = function(){
+    userList.insertAdjacentHTML('beforeBegin', '<button id="sortOfList">Сортируй</button>');
+    let sortBtn = document.getElementById('sortOfList');
+
+    if(sortBtn) {
+        sortBtn.addEventListener('click', () => {
+            sortingLists(userList, users); 
+            sortBtn.remove();
+        });
+    }
+
+    createSortButton = function() {
+        return false;
+    }
 }
 
 // сортировка списка по возрасту
+
 function sortingLists(elem, userArray) {
     if(elem.hasChildNodes()) {
         let list = elem.querySelectorAll('li');
