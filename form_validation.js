@@ -7,10 +7,10 @@ formSignUp.addEventListener('submit', function(event) {
 
     // Список полей
 
-    let username = document.getElementById('username').value;
-    let email = document.getElementById('email').value;
-    let password = document.getElementById('password').value;
-    let confirmPassword = document.getElementById('confirmPassword').value;
+    let username = document.getElementById('username');
+    let email = document.getElementById('email');
+    let password = document.getElementById('password');
+    let confirmPassword = document.getElementById('confirmPassword');
 
     // Блок для ошибок
 
@@ -29,38 +29,61 @@ formSignUp.addEventListener('submit', function(event) {
 
     // Условия для поля username
 
-    if (!username) {
+    if (!username.value) {
         usernameError.textContent = 'Введите имя пользователя';
+        username.style.borderColor = "red";
         isValid = false;
+    } else if (username.value.length < 4) {
+        usernameError.textContent = 'Имя должно содержать не менее 4 символов';
+        username.style.borderColor = "red";
+        isValid = false;
+    } else {
+        username.style.borderColor = "green";
     }
 
     // Условия для поля email
 
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!email) {
+    if (!email.value) {
         emailError.textContent = 'Введите email';
+        email.style.borderColor = "red";
         isValid = false;
-    } else if (!emailPattern.test(email)) {
+    } else if (!emailPattern.test(email.value)) {
         emailError.textContent = 'Некорректный email';
+        email.style.borderColor = "red";
         isValid = false;
+    } else {
+        email.style.borderColor = "green";
     }
 
     // Условия для поля password
 
-    if (!password) {
+    if (!password.value) {
         passwordError.textContent = 'Введите пароль';
+        password.style.borderColor = "red";
         isValid = false;
-    } else if (password.length < 6) {
+    } else if (password.value.length < 6) {
         passwordError.textContent = 'Пароль должен быть не менее 6 символов';
+        password.style.borderColor = "red";
         isValid = false;
+    } else {
+        password.style.borderColor = "green";
     }
+    
 
     // Условия для поля confirm password
 
-    if (password !== confirmPassword) {
+    if (password.value !== confirmPassword.value) {
         confirmPasswordError.textContent = 'Пароли не совпадают';
+        confirmPassword.style.borderColor = "red";
         isValid = false;
+    } else if(confirmPassword.value.length === 0) {
+        confirmPasswordError.textContent = 'Установите пароль';
+        confirmPassword.style.borderColor = "red";
+        isValid = false;
+    } else {
+        confirmPassword.style.borderColor = "green";
     }
 
     // Проверка формы на true по всем условиям выше
