@@ -4,19 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        button {
-            padding: 10px;
-            margin: 15px;
-        }
-    </style>
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
+<!-- practice 1: lists -->
 
     <button id="showAdults">Показать взрослых</button>
     <button id="showChildren">Показать детей</button>
     <ul id="userList"></ul>
 
+<!-- Lesson 13: form validation -->
+
+    <form class="form" id="signupForm">
+        <div>
+            <label for="username">Имя пользователя:</label>
+            <input type="text" id="username" name="username" autocomplete="off">
+            <span id="usernameError" class="error-message"></span>
+        </div>
+
+        <div>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" autocomplete="off">
+            <span id="emailError" class="error-message"></span>
+        </div>
+
+        <div>
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password">
+            <span id="passwordError" class="error-message"></span>
+        </div>
+
+        <div>
+            <label for="confirmPassword">Подтверждение пароля:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword">
+            <span id="confirmPasswordError" class="error-message"></span>
+        </div>
+
+        <button type="submit">Зарегистрироваться</button>
+    </form>
+
     <script src="./practice1.js"></script>
+    <script src="./form_validation.js"></script>
 </body>
 </html>
