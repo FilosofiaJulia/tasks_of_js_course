@@ -38,3 +38,55 @@ body {
     color: red;
 }
 
+.app {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    max-width: 30vw;
+    margin: 100px 20px;
+}
+
+.app h2 {
+    color: #333;
+}
+ 
+.app .track {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+ 
+.app button {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.app button svg {
+    fill: #ffffff;
+    stroke: #b4241a;
+    max-width: 20px;
+    height: auto;
+}
+ 
+.app #favorites {
+    margin-top: 20px;
+}
+
+.app .favorite {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    background-color: #f4f4f4;
+    padding: 8px 10px;
+    border: 2px solid #bad7fd;
+    margin-bottom: 5px;
+}
+.app .favorite button {
+    color: #000000;
+    background-color: #bad7fd;
+}
