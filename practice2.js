@@ -56,7 +56,6 @@ function addFavorite(trackName) {
    if (!favorites.includes(trackName)) {
       favorites.push(trackName);
       saveFavorites(favorites);
-      countFavoriteTracks();
       updateFavoritesDisplay();
    }
 }
