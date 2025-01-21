@@ -1,5 +1,3 @@
-
-
 fetch('https://dummyjson.com/posts')
    .then(function(response) {
       return response.json();
@@ -16,35 +14,43 @@ fetch('https://dummyjson.com/posts')
         console.error('Ошибка при получении данных', error);
    });
 
-
+// cоздание структуры поста
 
 function createPost(dataPost) {
     const posts = document.querySelector('.posts');
-    let post = document.createElement('div');
-    post.className = 'posts-item';
+
+    let post = createElem('div', 'posts-item');
     post.innerHTML = `
-    <h2>${dataPost.title}</h2>
-    <p>${dataPost.body}</p>
-    <div class="posts-footer">
-        <div class="tags"></div>
-        <div class="posts-info">
-            <p class="posts-icon like">${dataPost.reactions.likes || 0}</p>
-            <p class="posts-icon dislike">${dataPost.reactions.dislikes || 0}</p>
-            <p class="posts-icon view">${dataPost.views || 0}</p>
-        </div>
-    </div>
+        <h2>${dataPost.title}</h2>
+        <p>${dataPost.body}</p>
     `;
-    
-    let postTags = posts.querySelector('.tags');
+    let postFooter = createElem('div', 'posts-footer');
+    let tagsOfPost = createElem('div', 'tags');
+    let postInfo = createElem('div', 'posts-info');
+    postInfo.innerHTML = `
+        <p class="posts-icon like">${dataPost.reactions.likes || 0}</p>
+        <p class="posts-icon dislike">${dataPost.reactions.dislikes || 0}</p>
+        <p class="posts-icon view">${dataPost.views || 0}</p>
+    `;
+
+    postFooter.appendChild(tagsOfPost);
+    postFooter.appendChild(postInfo);
+    post.appendChild(postFooter);
+
     if(dataPost.tags.length !== 0) {
         for(let item = 0; item <= dataPost.tags.length - 1; item++) {
-            let tag = document.createElement('div');
-            tag.className = 'tag';
+            let tag = createElem('div', 'tag');;
             tag.textContent = `${dataPost.tags[item]}`;
-            postTags.appendChild(tag);
+            tagsOfPost.appendChild(tag);
         }
     }
-
     posts.appendChild(post);
+}
 
+// helper
+
+function createElem(tag, className) {
+    let elem = document.createElement(tag);
+    elem.className = className;
+    return elem;
 }
