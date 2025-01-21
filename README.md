@@ -73,5 +73,5 @@ Email: `<a href="mailto:EMAIL">EMAIL</a>` (поле email).
 
 ## Practice 3: work with API. Posts ##
 
-[Подключите API](https://dummyjson.com/posts)
-Создайте разметку через JS, чтобы вывести данные из API: title, body, tags, reactions, views
+1. [Подключите API](https://dummyjson.com/posts)
+2. Создайте разметку через JS, чтобы вывести данные из API: title, body, tags, reactions, views
