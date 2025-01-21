@@ -32,26 +32,3 @@ function createUserCard(user) {
     `;
     usersList.appendChild(userCard);
 }
-
-    /* function createUserCard() {
-        const usersList = document.querySelector('.users');
-        const userCard = document.createElement('div');
-        userCard.className = 'user';
-        userCard.innerHTML = `
-            <img src="URL" alt="User Name">
-<div>
-<p><strong>Name:</strong> FirstName LastName</p>
-<p><strong>Gender:</strong> Gender</p>
-<p><strong>City:</strong> City</p>
-<p><strong>Email:</strong> <a href="mailto:email@example.com">email@example.com</a></p>
-<p><strong>Username:</strong> Username</p>
-<p><strong>Password:</strong> Password</p>
-</div>
-        `;
-        usersList.appendChild(userCard);
-    }
-
-    const usersList = document.querySelector('.users');
-    for (let i = 0; i <= 9; i++) {
-        createUserCard();
-    } */
