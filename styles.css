@@ -130,3 +130,53 @@ body {
     border-radius: 50%;
     align-self:center;
 }
+
+/* lessons 20 */
+
+.container {
+    margin: 50px auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    max-width: 300px;
+    height: 300px;  
+}
+
+.box {
+    position: absolute;
+    transform:rotate(0deg);
+}
+
+.interval {
+    top: 20px;
+    left: 25%;
+    width: 150px;
+    height: 150px;
+    background-color: #de21d8;
+    z-index: 1;
+}
+
+.timeout {
+    top: 45px;
+    left: 33%;
+    width: 100px;
+    height: 100px;
+    background-color: #d8de21;
+    z-index: 2;
+
+}
+
+.anim {
+    top: 70px;
+    left: 41.5%;
+    width: 50px;
+    height: 50px;
+    background-color: #21d8de;
+    z-index: 3;
+}
+
+.container  .button {
+    align-self: end;
+    padding: 10px 20px;
+    margin-bottom: 30px;
+}
